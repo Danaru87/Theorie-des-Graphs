@@ -19,4 +19,18 @@ def fermetureTransitive():
 
     print(Matrice)
 
+def fermetureTransitiveArnaud(matrice):
+    for n in range(len(matrice)):
+        for i in range(len(matrice)):
+            for k in range(len(matrice[i])):
+                for j in range(len(matrice[i])):
+                    if matrice[i][k] != 0 and matrice[k][j] != 0:
+                        if matrice[i][j] == 0 and i != j:
+                            matrice[i][j] = matrice[i][k] + matrice[k][j]
+                        else:
+                            if matrice[i][j] > matrice[i][k] + matrice[k][j]:
+                                matrice[i][j] = matrice[i][k] + matrice[k][j]
+    print(Matrice)
+
 fermetureTransitive()
+fermetureTransitiveArnaud(Matrice)
