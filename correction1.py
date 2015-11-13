@@ -7,6 +7,7 @@ Matrice = [
     [1,1,0,1],
     [0,1,1,0]
 ]
+ListeSommetsMarques = []
 #structure pour la gestion du resultat
 def AjouterUnique(Element, Result):
     Trouve = False
@@ -47,7 +48,7 @@ def TousMarques(ListeSommetsMarques):
     while i < len(ListeSommetsMarques):
         if ListeSommetsMarques[i][1] == '':
             Resultat = False
-    i += 1
+        i += 1
     return Resultat
 
 #marque un sommet donne
@@ -56,7 +57,7 @@ def Marquer(Element, ListeSommetsMarques):
     while i < len(ListeSommetsMarques):
         if ListeSommetsMarques[i][0] == Element:
             ListeSommetsMarques[i][1] = '*'
-    i += 1
+        i += 1
     return ListeSommetsMarques
 
 def PL(SommetDeDepart):
@@ -71,8 +72,8 @@ def PL(SommetDeDepart):
     while not TousMarques(ListeSommetsMarquesPL):
         ListeSommetsMarquesPL = Marquer(Result[Indice], ListeSommetsMarquesPL)
         print "ListeSommetsMarquesPL: ", ListeSommetsMarquesPL
-        print "Result: ", Result
-        print "Indice: ", Indice
+        print ("Result: ", Result)
+        print ("Indice: ", Indice)
         #recherche les voisins dans la matrice
         for i in range(len(ListeSommets)):
             if Result[Indice] == ListeSommets[i]:
@@ -80,7 +81,7 @@ def PL(SommetDeDepart):
                     if Matrice[i][j] == 1:
                         Result = AjouterUnique(ListeSommets[j], Result)
         Indice +=1
-    print Result,
+    print Result
 
 PL(ListeSommets[0])
 print " --> Result (parcours en largeur) "

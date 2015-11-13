@@ -79,15 +79,6 @@ StackDejaTraite.append('A')
 
 
 '''
-On commence a A    <------------------------------∏
-On recupère a liste des successeurs de A          |
-On stocke la longueur des successeurs de A        |
- On traite le premier successeur bla              |
- Si pas de successeurs à bla:                     |
-  Retour à A            i+1 < longeurSucesseurs   |
- Sinon                                            |
-    ajouter bla StackDejaTraité ------------------∏
-
 succA = rechercherSucesseurs('A')
 fsucc = succA[0]
 StackDejaTraite.append(fsucc)
