@@ -26,35 +26,32 @@ Matrice = {
 }
 
 
-
 def cheminOptimal():
-    # On marque le premier sommet
-    SommetMarques.append("A")
+    while (len(SommetMarques) < len(ValeurSommet)):
+        # On marque le premier sommet
+        for sommet in ValeurSommet:
+            if not(estmarque(sommet)):
+                SommetMarques.append(sommet)
+                #On recupere les voisins du sommet
+                lesVoisins = Matrice[sommet]
+                #Pour chaque voisins
+                ValuerVoisin(lesVoisins)
 
-    #On boucle sur chaque sommet marque
-    for sommet in SommetMarques:
-        #On recupere les voisins du sommet
-        lesVoisins = Matrice[sommet]
-        #Pour chaque voisins
-        ValuerVoisin(lesVoisins)
-
-        #On recupere le plus petit voisin
-        sommetVoisin = RechercherPlusPetitVoisin(lesVoisins)
-        SommetMarques.append(sommetVoisin)
+                #On recupere le plus petit voisin
+                sommetVoisin = RechercherPlusPetitVoisin(lesVoisins)
+                SommetMarques.append(sommetVoisin)
     print(ValeurSommet)
     print(SommetMarques)
 
 
 def ValuerVoisin(lesVoisins):
     for voisin in lesVoisins:
-            # Si le sommet n'est pas marque
-            if not (estmarque(voisin)):
-                # Si la valeur du sommet deja valuee est plus grande
-                if (ValeurSommet[voisin] > lesVoisins[voisin]):
-                    ValeurSommet[voisin] = lesVoisins[voisin]
+        # Si la valeur du sommet deja valuee est plus grande
+        if (ValeurSommet[voisin] > lesVoisins[voisin]):
+            ValeurSommet[voisin] = lesVoisins[voisin]
 
 
-def RechercherPlusPetitSommetNonMarque(lesVoisins): ##TODO: A corriger
+def RechercherPlusPetitVoisin(lesVoisins):
     value = 99999
     sommetVoisin = "X"
     for voisin in lesVoisins:
